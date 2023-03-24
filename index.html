@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <form name="weather" style="display: flex;">
+        <p>0</p>
+        <input type="range" id="range">
+        <p>120</p>
+    </form>
+    <div id="stylesheet">
+        <style>
+            input[type=range]::-webkit-slider-runnable-track {
+                background-color: aqua;
+            }
+        </style>
+    </div>
+</body>
+<script>
+    let range = document.getElementById('range');
+    range.addEventListener('change', () => {
+        let stylesheet = document.getElementById('stylesheet')
+
+        if (range.value < 32) {
+            stylesheet.innerHTML = `<style>
+            input[type=range]::-webkit-slider-runnable-track {
+               background-color: blue;
+            }  
+            </style>`
+
+        }
+        if(range.value > 32 && range.value < 90){
+            stylesheet.innerHTML = `<style>
+            input[type=range]::-webkit-slider-runnable-track {
+               background-color: yellow;
+            }  
+            </style>`
+        }
+        if(range.value > 90){
+            stylesheet.innerHTML = `<style>
+            input[type=range]::-webkit-slider-runnable-track {
+               background-color: red;
+            }  
+            </style>`
+        }
+
+    })
+</script>
+
+</html>
